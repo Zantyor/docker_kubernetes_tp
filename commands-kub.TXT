@@ -1,0 +1,32 @@
+gcloud container clusters get-credentials tp-docker --zone europe-west1-b --project durable-tracer-296115
+-- récupérer les infos du cluster et du projet --
+
+gcloud config set project durable-tracer-296115
+-- Lier le projet --
+
+gcloud container clusters list
+-- lister les containers -- 
+
+kubectl get all --all-namespaces
+-- infos de config diverses --
+
+kubectl apply -f deployment.yml
+-- appliquer le délpoiement --
+
+kubectl get deployments
+-- voir les déploiements en cours --
+
+kubectl get pod
+-- lister les pods --
+
+kubectl port-forward app-deployment-6567d9dcfc-69wfz 8989:3000
+-- se connecter au port du pod --
+
+kubectl apply -f service.yml
+-- appliquer le service --
+
+kubectl get service
+-- lister les services --
+
+kubectl apply -f ingress.yml
+-- appliquer l'ingress -- 

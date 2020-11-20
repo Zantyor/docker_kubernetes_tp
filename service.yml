@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-tp-docker
+  namespace: default
+spec:
+  ports:
+  - port: 8989
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    run: service-tp-docker
+  type: NodePort
+  
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-tp-docker
+spec:
+  selector:
+    pod: react
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  clusterIP: 10.124.3.25
+  type: LoadBalancer
